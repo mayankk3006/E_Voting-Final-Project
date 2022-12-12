@@ -1,0 +1,45 @@
+{{> nHeader }}
+
+<div class="notes_wrapper">
+  {{!-- <div class="welcome_div">
+    <div>
+    candidates ..
+    </div>
+  </div> --}}
+
+  <div style="width: 49%; height: 650px; float:left;border-right: 1px solid white;">
+    
+    <h1 style="text-align: center;color:white;">Candidates</h1>
+
+    {{#each candidateList}}
+    <div id="{{this.id}}" class="candidateListItem" style="margin: 30px;border: 1px solid black; border-radius: 20px;padding: 30px;background-color:white;cursor: pointer;box-shadow: 5px 5px 5px 5px;">
+      <img src='/images/{{this.username}}.png' style="width:40px;float:left;border-radius: 50%;margin-top: -10px;margin-right: 20px;"
+    onerror="this.src='/images/react.png';"/>
+      {{!-- <img src='/images/react.png' style="width:40px;float:left;border-radius: 50%;margin-top: -10px;margin-right: 20px;"/>  --}}
+      {{ this.username }}
+      <span id="{{this.id}}_username" style="display:none;">{{this.username}}</span>
+      <span id="{{this.id}}_description" style="display:none;">{{this.description}}</span>
+    </div>
+    {{/each}}
+
+  </div>
+
+  <div style="width: 50%;height: 650px;  float:right;text-align: center;">
+    <img id='selectedCandidateImage' src='/images/{{selectedCandidate.username}}.png' style="border-radius: 10%;width:400px; height: auto;box-shadow: 5px 5px 5px 5px;"
+    onerror="this.src='/images/react.png';"/>
+    {{!-- <img src='/images/react.png' style="border-radius: 50%;"/> --}}
+    <h2 id='selectedCandidateUsername' style="color:white;margin-top:20px;">{{selectedCandidate.username}}</h2>
+    <h2 id='selectedCandidateDescription' style="color:white;">{{selectedCandidate.description}}</h2>
+  </div>
+
+</div>
+
+<script>
+  $(".candidateListItem").click(function(){
+    $('#selectedCandidateImage').attr('src',`/images/${$(`#${this.id}_username`).text()}.png`);
+    $('#selectedCandidateUsername').text($(`#${this.id}_username`).text());
+    $('#selectedCandidateDescription').text($(`#${this.id}_description`).text());
+  });
+</script>
+
+{{> footer }}

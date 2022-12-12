@@ -1,0 +1,34 @@
+{{> nHeader }}
+
+<div class="notes_wrapper">
+  {{!-- <div class="welcome_div">
+    <div>
+    Result..
+    </div>
+  </div> --}}
+
+  {{!-- <div style="width:45%; display: inline-block;">div1</div>
+  <div style="width:45% display: inline-block;">div2</div> --}}
+
+  <div style="width: 50%;height: 650px;  float:left;text-align: center;">
+    <img src='/images/react.png' style="border-radius: 50%;"/>
+    <h2 style="color:white;margin-top:20px;">{{winner.candidate_name}} Won.</h2>
+    <h2 style="color:white;">Total Vote : {{winner.vote}}</h2>
+  </div>
+  <div style="width: 49%; height: 650px; float:right;border-left: 1px solid white;">
+    
+    <h1 style="text-align: center;color:white;">Result</h1>
+
+    {{#each result}}
+    <div style="margin: 30px;border: 1px solid black; border-radius: 20px;padding: 30px;background-color:white;box-shadow: 2px 5px 5px 5px;">
+      <img src='/images/react.png' style="width:40px;float:left;border-radius: 50%;margin-top: -10px;margin-right: 20px;"/> 
+      {{ this.candidate_name }}
+      <span style="float: right;">Total Vote : {{this.vote}}</span>
+    </div>
+    {{/each}}
+    
+  </div>
+
+</div>
+
+{{> footer }}

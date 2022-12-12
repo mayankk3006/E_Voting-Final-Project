@@ -1,0 +1,53 @@
+{{> nHeader }}
+
+<div class="notes_wrapper">
+
+  <h1 style="text-align :center;color:white;">Testimonials</h1>
+
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    {{#each testimonials}}
+    <div class="swiper-slide">
+      <h3 style="margin: 50px;">{{this.feedback}}
+        <br>
+        <div style="font-size: 15px;font-weight:normal;text-align:right;"><i>- {{this.username}}</i></div>
+        <div style="font-size: 15px;font-weight:normal;text-align:right;"><i>{{this.date}}</i></div>
+      </h3>
+    </div>
+    {{/each}}
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+    <script src="/js/dist/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper", {
+        speed: 2000,
+        loop : true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay : 2000
+        },
+        keyboard: true,
+      });
+    </script>
+
+</div>
+
+{{> footer }}
